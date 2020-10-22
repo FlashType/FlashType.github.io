@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	async function formSend(e) {
 		e.preventDefault();
 		let error = formValidate(form);
+		let formData = new FormData(form);
 		if (error === 0) {
 			form.parentElement.classList.add('_sending');
 			let response = await fetch('sendmail.php', {
