@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				body: formData
 			});
 			if (response.ok) {
-				
-				alert(response.message);
+				let result = await response.json();
+				alert(result.message);
 				form.reset();
 				form.parentElement.classList.remove('_sending');
 			} else {

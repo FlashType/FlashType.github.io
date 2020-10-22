@@ -11,7 +11,7 @@
 	$mail->IsHTML(true);
 
 	//От кого письмо
-	$mail->setFrom('email');
+	$mail->setFrom('abs@mail.ru');
 	//Кому отправить
 	$mail->addAddress('neftnam@gmail.com');
 	//Тема письма
