@@ -1,0 +1,23 @@
+.footer-name {font-weight: bold;
+}
+.footer-social {
+}
+.footer-list {
+
+}
+footer{
+	width: 100%;
+	padding: 10px 5%;
+	
+	margin: 0 auto;
+	@include flex(space-between,center,row);
+	
+	background: linear-gradient(#FF4040,#020067);
+&-name{
+	
+}
+#insta{
+	fill: black;
+	
+}
+}
