@@ -11,7 +11,11 @@
 	$mail->IsHTML(true);
 
 	//От кого письмо
+<<<<<<< HEAD
 	$mail->setFrom('abs@mail.ru');
+=======
+	$mail->setFrom('email@mail.ru');
+>>>>>>> 6428e88842e0289701d8c44d4aa8153fc7182cb0
 	//Кому отправить
 	$mail->addAddress('neftnam@gmail.com');
 	//Тема письма
