@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				form.reset();
 				form.parentElement.classList.remove('_sending');
 			} else {
-				alert('Error');
+				alert('Errorrr');
 				form.parentElement.classList.remove('_sending');
 			}
 		} else {
