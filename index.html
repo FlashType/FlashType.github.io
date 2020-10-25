@@ -208,7 +208,7 @@
 				<input class="form-input " type="tel" id="tel" name="tel" 
 				placeholder="+(XXX)XXXXXXXXX">
 			</div>
-			<button type="submit">Отправить</button>
+			<button id="submit" type="submit">Отправить</button>
 		</form>
 	</section>
 	<!-- Footer -->
@@ -251,16 +251,16 @@
 	
 			// get the form elements defined in your form HTML above
 			
-			var form = document.getElementById("my-form");
-			var button = document.getElementById("my-form-button");
-			var status = document.getElementById("my-form-status");
+			var form = document.querySelector("form");
+			var button = document.getElementById("submit");
+			// var status = document.getElementById("my-form-status");
 	
 			// Success and Error functions for after the form is submitted
 			
 			function success() {
 				form.reset();
 				button.style = "display: none ";
-				status.innerHTML = "Thanks!";
+				// status.innerHTML = "Thanks!";
 			}
 	
 			function error() {
