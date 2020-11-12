@@ -484,7 +484,11 @@ body {
 	vertical-align: center;
 	transition: transform 0.2s linear;
 	transform: scale(1);
-
+	&.active {
+		color: $mainColor;
+		transition: transform 0.2s linear;
+		transform: scale(1.1);
+	}
 	&:hover {
 		color: $mainColor;
 		transition: transform 0.2s linear;

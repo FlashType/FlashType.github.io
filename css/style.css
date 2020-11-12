@@ -1125,6 +1125,16 @@ body.lock {
           transform: scale(1);
 }
 
+.tab-item.active {
+  color: #007397;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .tab-item:hover {
   color: #007397;
   -webkit-transition: -webkit-transform 0.2s linear;
