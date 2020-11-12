@@ -1,0 +1,83 @@
+.form {
+	&__body {
+		min-height: 500px;
+		max-width: 500px;
+		width: 100%;
+		@include flex(space-between, center, column);
+		@include bg2;
+		padding: 60px 50px;
+		padding-bottom: 20px;
+		font-size: 20px;
+		border: 3px solid $mainColor;
+		border-radius: 15px;
+		@media (max-width: $md3+px) {
+			padding: 40px 20px;
+			padding-bottom: 10px;
+		}
+	}
+	// .form__section
+	&__section {
+		@include flex(center, center, row);
+
+		min-height: 100vh;
+	}
+	// .form__wrapper
+	&__wrapper {
+		height: 100%;
+		width: 100%;
+		@include flex(center, center, column);
+	}
+	// .form__item
+	&__item {
+		margin-bottom: 15px;
+		width: 100%;
+	}
+	// .form__label
+	&__label {
+		display: block;
+		margin-bottom: 10px;
+		font-size: 1.2em;
+	}
+	// .form__input
+	&__input {
+		font-family: $fontfamily;
+		background-color: #007397;
+		height: 50px;
+		padding: 5px 15px;
+		border-radius: 15px;
+		max-width: 500px;
+		width: 100%;
+		color: white;
+		font-weight: 800;
+		&:focus {
+			box-shadow: 0 2px 15px 3px green;
+		}
+	}
+	@media (max-width: $md2+px) {
+	}
+	
+	@media (max-width: $md4+px) {
+	}
+}
+.container {
+	height: 100%;
+	width: 100%;
+}
+.asterix {
+	color: red;
+}
+.content {
+	// .content__link
+	&__link {
+		padding: 0 15px;
+		justify-self: start;
+
+		
+		&__text{
+			color: white;
+			
+		}
+	}
+}
+.btn {
+}
