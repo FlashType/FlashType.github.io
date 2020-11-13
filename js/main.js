@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     ibg();
     //==============FORM==============
-    const form = document.querySelectorAll('.form__body');
+    const form = document.querySelectorAll('form');
     form.forEach(item => postData(item));
     function postData(form){
         form.addEventListener('submit', function formSend(e) {
