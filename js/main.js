@@ -107,5 +107,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }, 2000);
     }
-    statusLoading(form, message.loading);
 });
