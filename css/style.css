@@ -945,6 +945,9 @@ html {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .projects {
