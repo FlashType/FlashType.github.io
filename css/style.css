@@ -950,6 +950,12 @@ html {
           flex-grow: 1;
 }
 
+.content-inner__link {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 .projects {
   background-color: rgba(191, 191, 191, 0.1);
 }

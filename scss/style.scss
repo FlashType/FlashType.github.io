@@ -300,6 +300,9 @@ html {
         text-transform: uppercase;
         flex-grow:1;
     }
+    &-inner__link {
+        flex-grow:1;
+    }
 }
 
 //!Relations section
