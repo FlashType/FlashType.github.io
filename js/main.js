@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusLoading = document.createElement('img');
             statusLoading.classList.add('form__message');
             statusLoading.src = message.loading;
-            form.append(statusLoading);
+            form.insertAdjacentElement('afterend',statusLoading);
             const request = new XMLHttpRequest();
             request.open('POST', 'server.php');
             const formData = new FormData(form);
