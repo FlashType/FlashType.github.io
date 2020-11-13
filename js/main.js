@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		messageBox.classList.add('form__message');
 		messageBox.innerHTML = `
 		<h3>${message}</h3>`;
-		form.parentElement.appent(messageBox);
+		form.parentElement.append(messageBox);
 		setTimeout(() => {
 			statusMessage.remove();
 		}, 2000);
