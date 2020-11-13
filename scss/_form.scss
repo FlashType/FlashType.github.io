@@ -14,6 +14,9 @@
 			padding: 40px 20px;
 			padding-bottom: 10px;
 		}
+		&.hide {
+			display: none;
+		}
 	}
 	// .form__section
 	&__section {
@@ -55,7 +58,7 @@
 	}
 	@media (max-width: $md2+px) {
 	}
-	
+
 	@media (max-width: $md4+px) {
 	}
 }
@@ -72,10 +75,8 @@
 		padding: 0 15px;
 		justify-self: start;
 
-		
-		&__text{
+		&__text {
 			color: white;
-			
 		}
 	}
 }

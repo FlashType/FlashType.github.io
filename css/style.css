@@ -425,6 +425,10 @@ h6 {
   }
 }
 
+.form__body.hide {
+  display: none;
+}
+
 .form__section {
   display: -webkit-box;
   display: -ms-flexbox;
