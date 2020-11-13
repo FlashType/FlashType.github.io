@@ -1,182 +1,183 @@
 $minwidth: 320px;
 $mw: 1170;
-$md1: $mw + 12;
+$md1: $mw+12;
 $md2: 991.98;
 $md3: 767.98;
 $md4: 479.98;
 $md5: 350.98;
 //=======================================================
-.header {
-	z-index: 50;
-	&__body {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		height: 100px;
-		@media (max-width: $md2+px) {
-			height: 80px;
-		}
-		@media (max-width: $md3+px) {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 50;
-			background-color: #fff;
-			padding: 0 10px;
-			box-shadow: 0 0 5px black;
-		}
-	}
-	&__name.title{
-		@media (max-width: $md4+px){
-			font-size: 25px;
-		}
-		@media (max-width: $md5+px){
-			font-size: 20px;
-		}
-	}
-	// &__logo-link {
-	// 	display: inline-block;
-	// 	width: 172px;
-	// 	@media (max-width: $md2+px) {
-	// 		width: 100px;
-	// 	}
-	// 	@media (max-width: $md3+px) {
-	// 		width: 150px;
-	// 	}
-	// }
-	// &__logo-image {
-	// 	width: 100%;
-	// }
+.title {
+    font-family: PT Serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #3c3f3d;
 }
+
+.header {
+    z-index: 50;
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        @media (max-width: $md2+px) {
+            height: 80px;
+        }
+        @media (max-width: $md3+px) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            background-color: #fff;
+            padding: 0 10px;
+            box-shadow: 0 0 5px black;
+        }
+    }
+    &__name::first-letter {
+        font-size: 1.5em;
+        color: $mainColor3;
+    }
+    &__name.title {
+        @media (max-width: $md4+px) {
+            font-size: 25px;
+        }
+        @media (max-width: $md5+px) {
+            font-size: 18px;
+        }
+    }
+    &__blue {
+        font-size: 1.5em;
+        color: $mainColor;
+    }
+}
+
 .menu-header {
-	position: relative;
-
-	&__icon {
-		display: none;
-	}
-	@media (max-width: $md3+px) {
-		&__icon {
-			display: block;
-			position: relative;
-			top: 0px;
-			right: 10px;
-			width: 30px;
-			height: 18px;
-			cursor: pointer;
-			z-index: 5;
-			span {
-				transition: all .2s linear;
-				top: 8px;
-				left: 0px;
-				position: absolute;
-				width: 100%;
-				height: 2px;
-				background-color: #000;
-				&:first-child {
-					top: 0px;
-				}
-				&:last-child {
-					top: auto;
-					bottom: 0px;
-				}
-			}
-			&.active {			
-				span {
-					transform: scale(0);				
-					&:first-child {
-						transform: rotate(-45deg);
-						top: 8px;
-						
-					}
-					&:last-child {
-						transform: rotate(45deg);
-						bottom: 8px;
-					}
-				}
-			}
-		}
-	}
-	&__menu {
-		@media (max-width: $md3+px) {
-			position: fixed;
-			overflow: auto;
-			z-index: 2;
-			left: -100%;
-			top: 80px;
-			height: 100%;
-			width: 100%;
-			background-color: white;
-			transition: all .2s linear;
-			&.active {
-				left: 0;
-				top: 80px;
-				body {
-					overflow: hidden;
-				}
-			}
-		}
-	}
-	&__menu > * + * {
-		margin-left: 30px;
-		@media (max-width: $md1+px) {
-			margin-left: 25px;
-		}
-		@media (max-width: $md2+px) {
-			margin-left: 10px;
-		}
-	}
-
-	&__link {
-		position: relative;
-		display: inline-block;
-		color: #646667;
-
-		font-weight: 700;
-		letter-spacing: 1px;
-		line-height: 40px;
-		text-transform: uppercase;
-		span {
-			position: relative;
-			display: inline-block;
-			&::before {
-				content: "";
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				height: 2px;
-				background-color: #007397;
-				width: 0;
-				transition: all .2s linear;
-			}
-			&:hover {
-				&:before {
-					content: "";
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					height: 2px;
-					background-color: #007397;
-					width: 100%;
-				}
-			}
-		}
-
-		@media (max-width: $md1+px) {
-			line-height: 25px;
-		}
-		@media (max-width: $md3+px) {
-			display: block;
-			margin: 0;
-			padding: 25px 15px;
-			font-size: 20px;
-		}
-	}
-
-	
+    position: relative;
+    &__icon {
+        display: none;
+    }
+    @media (max-width: $md3+px) {
+        &__icon {
+            display: block;
+            position: relative;
+            top: 0px;
+            right: 10px;
+            width: 30px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 5;
+            span {
+                transition: all .2s linear;
+                top: 8px;
+                left: 0px;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #000;
+                &:first-child {
+                    top: 0px;
+                }
+                &:last-child {
+                    top: auto;
+                    bottom: 0px;
+                }
+            }
+            &.active {
+                span {
+                    transform: scale(0);
+                    &:first-child {
+                        transform: rotate(-45deg);
+                        top: 8px;
+                    }
+                    &:last-child {
+                        transform: rotate(45deg);
+                        bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+    &__menu {
+        @media (max-width: $md3+px) {
+            position: fixed;
+            overflow: auto;
+            z-index: 2;
+            left: -100%;
+            top: 80px;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            transition: all .2s linear;
+            &.active {
+                left: 0;
+                top: 80px;
+                body {
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+    &__menu>*+* {
+        margin-left: 30px;
+        @media (max-width: $md1+px) {
+            margin-left: 25px;
+        }
+        @media (max-width: $md2+px) {
+            margin-left: 10px;
+        }
+    }
+    &__link {
+        position: relative;
+        display: inline-block;
+        color: #646667;
+        font-weight: 700;
+        letter-spacing: 1px;
+        line-height: 40px;
+        text-transform: uppercase;
+        span {
+            position: relative;
+            display: inline-block;
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                height: 2px;
+                background-color: #007397;
+                width: 0;
+                transition: all .2s linear;
+            }
+            &:hover {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 2px;
+                    background-color: #007397;
+                    width: 100%;
+                }
+            }
+        }
+        @media (max-width: $md1+px) {
+            line-height: 25px;
+        }
+        @media (max-width: $md3+px) {
+            display: block;
+            margin: 0;
+            padding: 25px 15px;
+            font-size: 20px;
+        }
+    }
 }
 
 //====================================================================================================
+
 /*
 	Стиль иконки бургера
 	.menu-header__icon{

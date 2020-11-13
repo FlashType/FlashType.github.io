@@ -54,32 +54,41 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     ibg();
     //==============FORM==============
-    const form = document.querySelector('.form__body');
-    form.addEventListener('submit', formSend);
-
-
-    function formSend(e) {
-        e.preventDefault();
-        const message = {
-            success: "success",
-            failure: "failure",
-            loading: "img/icons/ajax-loader.gif"
-        };
-        const req = new XMLHttpRequest();
-        req.open('POST', 'https://formspree.io/f/mdopdn');
-        const formData = new FormData(form);
-        req.send(formData);
-        req.addEventListener('load', () => {
-            if (req.status === 200) {
-                form.reset();
-                statusMessage(form, message.success);
-            } else if (req.send < 200) {
-                statusLoading(form, message.loading);
-            } else {
-                statusMessage(form, message.failure);
-            }
+    const form = document.querySelectorAll('.form__body');
+    form.forEach(item => {
+        item.addEventListener('submit', function formSend(e) {
+            e.preventDefault();
+            const message = {
+                success: "success",
+                failure: "failure",
+                loading: "img/icons/ajax-loader.gif"
+            };
+            const statusLoading = document.createElement('img');
+            statusLoading.classList.add('form__message');
+            statusLoading.src = message.loading;
+            item.append(statusLoading);
+            const req = new XMLHttpRequest();
+            req.open('POST', 'https://formspree.io/f/mdopdnbb');
+            const formData = new FormData(item);
+            req.send(formData);
+            req.addEventListener('load', () => {
+                if (req.status === 200) {
+                    item.reset();
+                    statusLoading.remove();
+                    setTimeout(() => {
+                        closeModal();
+                    }, 1000)
+                    statusMessage(item, message.success);
+                } else {
+                    statusLoading.remove();
+                    item.reset();
+                    statusMessage(item, message.failure);
+                }
+            });
         });
-    }
+    })
+
+
 
     function statusMessage(form, message) {
         form.classList.add('hide');
@@ -91,20 +100,27 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             messageBox.remove();
             form.classList.remove('hide');
-
         }, 2000);
     }
+    //===============MODAL===============
+    const modalWindow = document.querySelector('.modal'),
+        contactBtn = document.querySelectorAll('.content__link')[0],
+        closeBtn = document.querySelector('.modal__close');
+    contactBtn.addEventListener('click', openModal);
+    modalWindow.addEventListener('click', (e) => {
+        if (e.target == modalWindow || e.target.classList.contains('modal__close')) {
+            closeModal()
+        }
+    });
 
-    function statusLoading(form, message) {
-        form.classList.add('hide');
-        const messageBox = document.createElement('img');
-        messageBox.classList.add('form__message');
-        messageBox.src = message;
-        form.parentElement.append(messageBox);
-        setTimeout(() => {
-            messageBox.remove();
-            form.classList.remove('hide');
+    function openModal() {
+        modalWindow.classList.remove('hide');
+        document.body.classList.add('lock');
+    }
 
-        }, 2000);
+    function closeModal() {
+        modalWindow.classList.add('hide');
+        document.body.classList.remove('lock');
+
     }
 });

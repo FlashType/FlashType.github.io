@@ -1,0 +1,51 @@
+.modal {
+    position: fixed;
+    overflow: hidden;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: rgba($mainColor2, $alpha: .5);
+    display: block;
+    &__wrapper {
+        position: relative;
+        z-index: 25;
+        display: flex;
+        flex-direction: column;
+        margin: 150px 50px;
+        border-radius: 30px;
+        background-color: #fff;
+        padding: 30px;
+        @media (max-width: $md3 + px) {
+            margin: 100px 10px;
+            padding: 15px 10px;
+        }
+    }
+    &__close {
+        align-self: end;
+        color: $mainColor3;
+        cursor: pointer;
+        transition: .1s linear all;
+        transform: scale(1.5);
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 5px;
+        &:hover {
+            transform: scale(2.0);
+            transition: .1s linear all;
+        }
+    }
+    &.hide {
+        display: none;
+    }
+}
+
+.form {
+    &__body {
+        position: relative;
+        background: #fff;
+    }
+}
