@@ -89,18 +89,22 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3>${message}</h3>`;
         form.parentElement.append(messageBox);
         setTimeout(() => {
-            statusMessage.remove();
+            messageBox.remove();
+            form.classList.remove('hide');
+
         }, 2000);
     }
 
     function statusLoading(form, message) {
         form.classList.add('hide');
-        const messageBox = document.createElement('ing');
+        const messageBox = document.createElement('img');
         messageBox.classList.add('form__message');
         messageBox.src = message;
         form.parentElement.append(messageBox);
         setTimeout(() => {
-            statusMessage.remove();
+            messageBox.remove();
+            form.classList.remove('hide');
+
         }, 2000);
     }
     statusLoading(form, message.loading);
