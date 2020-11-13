@@ -394,8 +394,6 @@ h6 {
 }
 
 .form__body {
-  min-height: 500px;
-  max-width: 500px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -411,22 +409,15 @@ h6 {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: rgba(191, 191, 191, 0.1);
-  padding: 60px 50px;
-  padding-bottom: 20px;
   font-size: 20px;
-  border: 3px solid #007397;
-  border-radius: 15px;
-}
-
-@media (max-width: 767.98px) {
-  .form__body {
-    padding: 40px 20px;
-    padding-bottom: 10px;
-  }
 }
 
 .form__body.hide {
   display: none;
+}
+
+.form__title {
+  text-align: center;
 }
 
 .form__section {
@@ -447,8 +438,15 @@ h6 {
 }
 
 .form__wrapper {
+  text-align: center;
+  border: 3px solid #007397;
+  border-radius: 15px;
+  padding: 30px 50px;
+  max-height: 500px;
+  max-width: 500px;
   height: 100%;
   width: 100%;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -462,6 +460,16 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.form__message {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 48px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #007397;
 }
 
 .form__item {
@@ -1428,3 +1436,4 @@ body.lock {
   height: 350px;
   width: 100%;
 }
+/*# sourceMappingURL=style.css.map */
