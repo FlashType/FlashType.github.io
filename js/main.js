@@ -55,15 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ibg();
     //==============FORM==============
     const form = document.querySelectorAll('form');
+    const message = {
+        success: "success",
+        failure: "failure",
+        loading: "img/icons/ajax-loader.gif"
+    };
     form.forEach(item => postData(item));
     function postData(form){
-        form.addEventListener('submit', function formSend(e) {
-            e.preventDefault();
-            const message = {
-                success: "success",
-                failure: "failure",
-                loading: "img/icons/ajax-loader.gif"
-            };
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();        
             const statusLoading = document.createElement('img');
             statusLoading.classList.add('form__message');
             statusLoading.src = message.loading;
