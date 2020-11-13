@@ -11,16 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //===============TABS===============
     function tab() {
-        let tabHead = document.querySelectorAll('.tab-item'),
+        let tabHead = document.querySelectorAll('.tab-form'),
             tabContent = document.querySelectorAll('.tab-content'),
             tabName;
-        tabHead.forEach(item => {
-            item.addEventListener('click', selectTabNav)
+        tabHead.forEach(form => {
+            form.addEventListener('click', selectTabNav)
         });
 
         function selectTabNav() {
-            tabHead.forEach(item => {
-                item.classList.remove('active');
+            tabHead.forEach(form => {
+                form.classList.remove('active');
             });
             this.classList.add('active');
             tabName = this.getAttribute('data-tab-name');
@@ -30,13 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function selectTabContent(tabName) {
-            tabContent.forEach(item => {
-                console.log(item.getAttribute('data-tab-name'));
-                if (item.classList.contains(tabName)) {
+            tabContent.forEach(form => {
+                console.log(form.getAttribute('data-tab-name'));
+                if (form.classList.contains(tabName)) {
                     console.log('yes');
-                    item.classList.add('active');
+                    form.classList.add('active');
                 } else {
-                    item.classList.remove('active');
+                    form.classList.remove('active');
                     console.log('no');
                 }
             });
@@ -55,8 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ibg();
     //==============FORM==============
     const form = document.querySelectorAll('.form__body');
-    form.forEach(item => {
-        item.addEventListener('submit', function formSend(e) {
+    form.forEach(item => postData(item));
+    function postData(form){
+        form.addEventListener('submit', function formSend(e) {
             e.preventDefault();
             const message = {
                 success: "success",
@@ -66,27 +67,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusLoading = document.createElement('img');
             statusLoading.classList.add('form__message');
             statusLoading.src = message.loading;
-            item.append(statusLoading);
+            form.append(statusLoading);
             const req = new XMLHttpRequest();
             req.open('POST', 'server.php');
-            const formData = new FormData(item);
+            const formData = new FormData(form);
             req.send(formData);
             req.addEventListener('status', () => {
                 if (req.status === 200) {
                     statusLoading.remove();    
-                    item.reset();                           
-                    statusMessage(item, message.success);
+                    form.reset();                           
+                    statusMessage(form, message.success);
                     setTimeout(() => {
                         closeModal();
                     }, 1000)
                 } else {
                     statusLoading.remove();
-                    item.reset();
-                    statusMessage(item, message.failure);
+                    form.reset();
+                    statusMessage(form, message.failure);
                 }
             });
         });
-    })
+   
+    }
+        
 
 
 
