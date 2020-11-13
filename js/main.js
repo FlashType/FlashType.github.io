@@ -64,15 +64,22 @@ document.addEventListener('DOMContentLoaded', () => {
     function postData(form){
         form.addEventListener('submit', (e) => {
             e.preventDefault();        
+            let data = new FormData(form);
+            ajax('POST','server.php');
+        });
+        function ajax(method,url ) { 
             const statusLoading = document.createElement('img');
             statusLoading.classList.add('form__message');
             statusLoading.src = message.loading;
             form.insertAdjacentElement('afterend',statusLoading);
             const request = new XMLHttpRequest();
-            request.open('POST', 'server.php');
-            const formData = new FormData(form);
-            request.send(formData);
-            request.addEventListener('load', () => {
+            request.open(method, url);
+            request.setRequestHeader("Accept", "application/json");
+            // const formData = new FormData(form);
+            // request.send(formData);
+            // console.log(request.response());
+            request.onreadystatechange = function() {
+                if (request.readyState !== XMLHttpRequest.DONE) return;
                 if (request.status === 200) {
                     statusLoading.remove();    
                     form.reset();                           
@@ -85,8 +92,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     form.reset();
                     statusMessage(form, message.failure);
                 }
-            });
-        });
+        }
+            
+              };
+              request.send(data);
+            // request.addEventListener('load', () => {
+            //     if (request.status === 200) {
+            //         statusLoading.remove();    
+            //         form.reset();                           
+            //         statusMessage(form, message.success);
+            //         setTimeout(() => {
+            //             closeModal();
+            //         }, 1000)
+            //     } else {
+            //         statusLoading.remove();
+            //         form.reset();
+            //         statusMessage(form, message.failure);
+            //     }
+            // });
    
     }
         
