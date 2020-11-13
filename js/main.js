@@ -54,13 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     ibg();
     //==============FORM==============
-    const form = document.querySelectorAll('form');
+    const forms = document.querySelectorAll('form');
     const message = {
         success: "success",
         failure: "failure",
         loading: "img/icons/ajax-loader.gif"
     };
-    form.forEach(item => postData(item));
+    forms.forEach(item => postData(item));
     function postData(form){
         form.addEventListener('submit', (e) => {
             e.preventDefault();        
@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
             statusLoading.classList.add('form__message');
             statusLoading.src = message.loading;
             form.append(statusLoading);
-            const req = new XMLHttpRequest();
-            req.open('POST', 'server.php');
+            const request = new XMLHttpRequest();
+            request.open('POST', 'server.php');
             const formData = new FormData(form);
-            req.send(formData);
-            req.addEventListener('status', () => {
-                if (req.status === 200) {
+            request.send(formData);
+            request.addEventListener('load', () => {
+                if (request.status === 200) {
                     statusLoading.remove();    
                     form.reset();                           
                     statusMessage(form, message.success);
