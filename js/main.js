@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();        
             let data = new FormData(form);
-            ajax('POST','server.php');
+            ajax('POST','server.php',data);
         });
-        function ajax(method,url ) { 
+        function ajax(method,url,data ) { 
             const statusLoading = document.createElement('img');
             statusLoading.classList.add('form__message');
             statusLoading.src = message.loading;
