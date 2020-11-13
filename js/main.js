@@ -93,9 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     statusMessage(form, message.failure);
                 }
         }
-            
+        request.send(data);
               };
-              request.send(data);
+              
             // request.addEventListener('load', () => {
             //     if (request.status === 200) {
             //         statusLoading.remove();    
