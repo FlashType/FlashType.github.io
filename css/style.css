@@ -1242,6 +1242,7 @@ html {
   text-shadow: 0 0px 5px black;
   padding: 10px;
   z-index: 2;
+  background-color: #fff;
 }
 
 .header-inner__text {

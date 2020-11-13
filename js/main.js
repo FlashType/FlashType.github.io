@@ -68,17 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
             statusLoading.src = message.loading;
             item.append(statusLoading);
             const req = new XMLHttpRequest();
-            req.open('POST', 'https://formspree.io/f/mdopdnbb');
+            req.open('POST', 'server.php');
             const formData = new FormData(item);
             req.send(formData);
-            req.addEventListener('load', () => {
+            req.addEventListener('status', () => {
                 if (req.status === 200) {
-                    item.reset();
-                    statusLoading.remove();
+                    statusLoading.remove();    
+                    item.reset();                           
+                    statusMessage(item, message.success);
                     setTimeout(() => {
                         closeModal();
                     }, 1000)
-                    statusMessage(item, message.success);
                 } else {
                     statusLoading.remove();
                     item.reset();

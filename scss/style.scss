@@ -486,12 +486,7 @@ html {
         text-shadow: 0 0px 5px rgba(0, 0, 0, 1);
         padding: 10px;
         z-index: 2;
-        background: #fff;
-        border: 1px solid black;
-        border-radius: 15px;
-            border-top-left-radius: 15px;
-        border-top-left-radius: 0;
-    }
+        background-color: #fff; 
     }
     // .header-inner__text
     &__text {
