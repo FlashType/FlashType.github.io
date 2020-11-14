@@ -921,6 +921,7 @@ html {
   background-color: #005169;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 .content__button:hover:before {
@@ -930,6 +931,7 @@ html {
   width: 100%;
   left: 0;
   background-color: #005169;
+  border-radius: 10px;
 }
 
 .content__link {

@@ -278,6 +278,7 @@ html {
             bottom: 0;
             background-color: #005169;
             transition: 0.3s;
+            border-radius: 10px;
         }
         &:hover {
             &:before {
@@ -287,6 +288,7 @@ html {
                 width: 100%;
                 left: 0;
                 background-color: #005169;
+                border-radius: 10px;
             }
         }
     }
