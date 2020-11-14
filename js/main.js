@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();        
             let data = new FormData(form);
-            ajax('POST','https://formspree.io/f/mdopdn',data);
+            ajax('POST','https://formspree.io/f/mdopdnb',data);
         });
         function ajax(method,url,data ) { 
             const statusLoading = document.createElement('img');
