@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">    
+    <title>Rock Parer Scisors</title>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Rock Paper Scissors Lizard Spock</h1>
+        </div>
+        <!-- Player Coontainer -->
+        <div class="player-container" id="player">
+            <h2>You - <span id="playerScore"></span> <span class="choise" id="playerChoice"> --- Choice</span><i class="fas fa-window-close"></i>
+            </h2>
+            <ul class="choice-icons">
+                <li class="icon player" id="playerRock" onclick="select('rock')"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#rock"></use>
+                </svg></li>
+                <li class="icon player" id="playerPaper" onclick="select('paper')"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#paper"></use>
+                </svg></li>
+                <li class="icon player" id="playerScissors" onclick="select('scissors')"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#scissors"></use>
+                </svg></li>
+                <li class="icon player" id="playerLizard" onclick="select('lizard')"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#lizard"></use>
+                </svg></li>
+                <li class="icon player" id="playerSpock" onclick="select('spock')"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#spock"></use>
+                </svg></li>
+            </ul>
+        </div>
+        <!-- Computer Coontainer -->
+        <div class="player-container" id="computer">
+            <h2>Computer - <span id="computerScore"></span> <span class="choise" id="computerChoice"> --- Choice</span><i class="fas fa-window-close"></i></h2>
+            <ul class="choice-icons">
+                <li class="icon computer" id="computerRock"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#rock"></use>
+                </svg></li>
+                <li class="icon computer" id="computerPaper"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#paper"></use>
+                </svg></li>
+                <li class="icon computer" id="computerScissors"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#scissors"></use>
+                </svg></li>
+                <li class="icon computer" id="computerLizard"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#lizard"></use>
+                </svg></li>
+                <li class="icon computer" id="computerSpock"><svg width="35" height="35">
+                    <use xlink:href="icons/main.svg#spock"></use>
+                </svg></li>
+            </ul>         
+        </div>
+         <!-- reset button -->   
+         <div class="player-container">
+            <button class="reset btn" onclick="resetAll()">reset</button>
+            <button class="rules-button btn">See the rules</button>
+            <div class="rules hide">
+                The <b>rules</b>: "<b>Scissors</b> decapitate <b>Scissors</b> cuts <b>paper</b>, <b>paper</b> covers <b>rock</b>, <b>rock</b> crushes <b>lizard</b>, <b>lizard</b> poisons <b>Spock</b>, <b>Spock</b> smashes <b>scissors</b>, <b>scissors</b> decapitates <b>lizard</b>, <b>lizard</b> eats <b>paper</b>, <b>paper</b> disproves <b>Spock</b>, <b>Spock</b> vaporizes <b>rock</b>, and as it always has, <b>rock</b> crushes <b>scissors</b>."
+            </div>
+         </div>
+        <!-- Result Text -->
+        <h3 class="result-text" id="resultText"></h3>
+    </div>
+
+    <script src="confetti.js-master/confetti.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
