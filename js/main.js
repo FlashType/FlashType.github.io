@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //===============TABS===============
     function tab() {
-        let tabHead = document.querySelectorAll('.tab-form'),
+        let tabHead = document.querySelectorAll('.tab-item'),
             tabContent = document.querySelectorAll('.tab-content'),
             tabName;
         tabHead.forEach(form => {
@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //==============FORM==============
     const forms = document.querySelectorAll('form');
     const message = {
-        success: "success",
-        failure: "failure",
+        success: "Thak you! I will contact you soon!",
+        failure: "Something went wrong!",
         loading: "img/icons/ajax-loader.gif"
     };
     forms.forEach(item => postData(item));
@@ -65,19 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();        
             let data = new FormData(form);
-            ajax('POST','https://formspree.io/f/mdopdnbb',data);
+            ajax('POST','https://formspree.io/f/mdopdn',data);
         });
         function ajax(method,url,data ) { 
             const statusLoading = document.createElement('img');
             statusLoading.classList.add('form__message');
             statusLoading.src = message.loading;
-            form.insertAdjacentElement('afterend',statusLoading);
+            form.prepend(statusLoading);
             const request = new XMLHttpRequest();
             request.open(method, url);
             request.setRequestHeader("Accept", "application/json");
-            // const formData = new FormData(form);
-            // request.send(formData);
-            // console.log(request.response());
             request.onreadystatechange = function() {
                 if (request.readyState !== XMLHttpRequest.DONE) return;
                 if (request.status === 200) {
@@ -86,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     statusMessage(form, message.success);
                     setTimeout(() => {
                         closeModal();
-                    }, 1000)
+                    }, 3000)
                 } else {
                     statusLoading.remove();
                     form.reset();
@@ -94,23 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
         }
         request.send(data);
-              };
-              
-            // request.addEventListener('load', () => {
-            //     if (request.status === 200) {
-            //         statusLoading.remove();    
-            //         form.reset();                           
-            //         statusMessage(form, message.success);
-            //         setTimeout(() => {
-            //             closeModal();
-            //         }, 1000)
-            //     } else {
-            //         statusLoading.remove();
-            //         form.reset();
-            //         statusMessage(form, message.failure);
-            //     }
-            // });
-   
+            };
     }
         
 
@@ -130,13 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     //===============MODAL===============
     const modalWindow = document.querySelector('.modal'),
-        contactBtn = document.querySelectorAll('.content__link')[0],
+        contactBtn = document.querySelectorAll('.content__button')[0],
         closeBtn = document.querySelector('.modal__close');
     contactBtn.addEventListener('click', openModal);
     modalWindow.addEventListener('click', (e) => {
         if (e.target == modalWindow || e.target.classList.contains('modal__close')) {
             closeModal()
-        }
+        }   
     });
 
     function openModal() {

@@ -487,6 +487,10 @@ html {
         padding: 10px;
         z-index: 2;
         background-color: #fff; 
+    border: 2px solid #5c0000;
+    border-radius: 10px;
+        border-top-left-radius: 10px;
+    border-top-left-radius: 0
     }
     // .header-inner__text
     &__text {
