@@ -53,8 +53,16 @@ ul{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 10px;
 }
+.icon{
+transition: .1s ease-in;
 
+}
+.icon:hover{
+transform: scale(1.4);
+transition: .1s ease-in;
+}
 h1 {
   color: white;
   font-size: 30px;
@@ -70,7 +78,8 @@ h2 {
 }
 
 .game-container{
-  width: 530px;
+  /* width: 530px; */
+  padding: 0;
   min-height: 600px;
   padding: 20px 0;
   background: #fff;
@@ -135,7 +144,9 @@ h2 {
   .player-container {
     margin: 50px 0 25px 25px;
   }
-
+  .result-text{
+    font-size: 30px;
+  }
 
 
   .reset-icon {
@@ -155,10 +166,9 @@ h2 {
   }
 
   .player-container {
-    margin: 43px 0 25px 20px;
+    margin: 43px 10px 25px 20px;
   }
 
-  
 
   .reset-icon {
     margin-top: 15px;
